@@ -1,5 +1,7 @@
 # Helloboot
 
+인프런 토비의 스프링 부트 - 이해와 원리 강의노트
+
 인프런 [토비의 스프링 부트 - 이해와 원리] 강의의 예제 코드입니다.
 
 JDK 11, SpringBoot 2.7.6을 사용합니다.
@@ -34,6 +36,8 @@ SpringBoot 3.0에서 동작하는 예제는 springboot3 브랜치를 참고해�
 
 ## sdkman
 
+java sdk 를 설치/관리해주는 툴 
+
 [https://sdkman.io/](https://sdkman.io/)
 
 ## 프로젝트 생성하기
@@ -46,3 +50,17 @@ $ init -b 2.7.6 -d web -g tobyspring -j 11 -n helloboot -x helloboot
 $ cd helloboot
 $ ./gradlew bootRun
 ```
+
+## Hello API 테스트
+
+HTTP 요청을 만들고 응답을 확인하는데 사용되는 도구
+
+- 웹 브라우저 개발자 도구
+- curl
+- HTTPie: 추천
+  - [https://httpie.io/](https://httpie.io/)
+  - 명령어 예시 http -v ":8080/hello?name=Spring"
+- Intellij IDEA Ultimate - http request
+- Postman API Platform
+- JUnit Test
+- API 테스트 도구

@@ -125,4 +125,36 @@ public class HellobootApplication {
 
 이제부터 스프링부트의 도움없이 서블릿 컨테이너와 스프링 컨테이너를 구동해보겠다.
 
+서블릿은 자바의 표준기술이고, 톰캣이 가장 유명한 제품
 
+톰캣도 자바로 만들어진 프로그램이니까 Embbeded 톰캣을 사용할 것임
+
+## 서블릿 컨테이너 띄우기
+
+main() 메소드에서 톰캣을 구동하였음
+
+터미널에서 http -v ":8080" 으로 테스트
+
+```bash
+$ http -v ":8080"
+GET / HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:8080
+User-Agent: HTTPie/3.2.1
+
+
+
+HTTP/1.1 404
+Connection: keep-alive
+Content-Language: en
+Content-Length: 682
+Content-Type: text/html;charset=utf-8
+Date: Wed, 08 Feb 2023 22:24:06 GMT
+Keep-Alive: timeout=60
+
+<!doctype html><html lang="en"><head><title>HTTP Status 404 – Not Found</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 404 – Not Found</h1><hr class="line" /><p><b>Type</b> Status Report</p><p><b>Description</b> The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</p><hr class="line" /><h3>Apache Tomcat/9.0.69</h3></body></html>
+
+
+```

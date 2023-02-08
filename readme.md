@@ -64,3 +64,21 @@ HTTP 요청을 만들고 응답을 확인하는데 사용되는 도구
 - Postman API Platform
 - JUnit Test
 - API 테스트 도구
+
+## HTTP 요청과 응답
+
+- HTTP
+  - Request
+    - Request Line: Method, Path, HTTP Version
+    - Headers
+    - Message Body
+  - Response
+    - Status Line: HTTP Version, Status Code, Status Text
+    - Headers
+    - Message Body
+
+요청/응답 예시
+
+```text
+
+```

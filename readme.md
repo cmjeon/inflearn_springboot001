@@ -79,6 +79,27 @@ HTTP 요청을 만들고 응답을 확인하는데 사용되는 도구
 
 요청/응답 예시
 
-```text
+```bash
+$ http -v ":8080/hello?name=Spring"
+GET /hello?name=Spring HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:8080
+User-Agent: HTTPie/3.2.1
 
+
+
+HTTP/1.1 200
+Connection: keep-alive
+Content-Length: 12
+Content-Type: text/plain;charset=UTF-8
+Date: Wed, 08 Feb 2023 00:09:42 GMT
+Keep-Alive: timeout=60
+
+Hello Spring
+
+
+
+$ 
 ```

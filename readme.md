@@ -159,4 +159,8 @@ Keep-Alive: timeout=60
 
 ```
 
-## 
+## Front Controller
+
+공통적으로 처리해야하는 부분이 각 서블릿에 중복되어 나타나는 문제가 생겼었음
+
+그래서 Front Controller 를 만들어서 공통적인 처리를 맡기고, 다른 영역은 Handler 에서 구현하도록 하였음

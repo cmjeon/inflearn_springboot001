@@ -103,3 +103,26 @@ Hello Spring
 
 $ 
 ```
+
+## Containerless 는 어떻게 동작하나?
+
+스프링부트의 구조는 아래처럼 서블릿 컨테이너와 스프링 컨테이너가 구동되어 동작하는 방식이다.
+
+![001](./assets/images/001.png)
+
+단지 main() 메소드를 실행했는데 서블릿 컨테이너와 스프링 컨테이너가 구동했다.
+
+```java
+@SpringBootApplication
+public class HellobootApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(HellobootApplication.class, args);
+  }
+
+}
+```
+
+이제부터 스프링부트의 도움없이 서블릿 컨테이너와 스프링 컨테이너를 구동해보겠다.
+
+

@@ -169,4 +169,8 @@ Keep-Alive: timeout=60
 
 Hello Controller 를 스프링 컨테이너에 넣고 Front Controller 가 필요할 때 부를 수 있도록 하자
 
-스프링컨테이너는 설정정보와 POJO 를 조합해서 사용할 수 있는 Bean 이라는 것을 만든다.
+스프링 컨테이너는 설정정보와 POJO 를 조합해서 사용할 수 있는 Bean 이라는 것을 만든다.
+
+스프링 컨테이너를 통해 HelloController 를 만들면 재사용할 수 있는 장점이 있음: 싱글턴 패턴
+
+스프링은 싱글턴 레지스트리

@@ -194,3 +194,11 @@ String 을 리턴하면 스프링이 자동으로 화면 이름으로 인식 함
 클래스에 @RestController 를 선언하면 메소드에서는 @ResponseBody 를 생략해도 됨
 
 스프링부트에서는 이런식으로 어디에 어떤 애노테이션을 선언하면 어떤 것이 생략가능하다는 식의 '관례'가 많이 있음 
+
+## RestController 와 Controller 애노테이션의 차이
+
+RestController 는 Controller 를 메타 애노테이션으로 가지고 있음
+
+RestController 는 ResponseBody 를 가지고 있음
+
+그래서 RestController 가 붙은 컨트롤러는 리턴값을 바디에 넣어줌

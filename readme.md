@@ -227,3 +227,23 @@ ApplicationContextAware 인터페이스를 구현한 클래스가 스프링 컨�
 
 따라서 DispatcherServlet 은 ApplicationContextAware 인터페이스를 구현하고 있기 때문에 명시적으로 setApplicationContext() 메소드를 실행하지 않아도 applicationContext 를 가지고 있게 됨
 
+## Decorator 패턴
+
+HelloService 인터페이스를 구현한 HelloDecorator 를 만들어 보자
+
+HelloDecorator 는 SimpleHelloService 를 의존하도록 만들려고 함
+
+HelloDecorator 는 SimpleHelloService 의 기능에 어떤 기능을 덧붙이고 싶을 때 활용
+
+HelloController 는 HelloService 인터페이스를 구현한 HelloDecorator 에 의존
+
+HelloDecorator 도 HelloService 인터페이스를 구현한 SimpleHelloService 에 의존
+
+HelloService 인터페이스를 구현한 빈은 HelloDecorator, SimpleHelloService 2개
+
+XML 구성정보로 해당 빈이 받아야할 빈을 명시해주거나, 팩토리 메소드로 해당 빈을 생성 해주는 방식으로 해결할 수 있음
+
+@Primary 로 우선순위 빈을 지정해줄 수 있음
+
+
+

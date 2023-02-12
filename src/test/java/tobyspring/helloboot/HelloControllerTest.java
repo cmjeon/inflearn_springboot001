@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class HelloControllerTest {
 
     @Test
     void HelloController() {
         // given
-        HelloController helloController = new HelloController(new HelloService() {
+        HelloController helloController = new HelloController(new HelloDecorator(name -> name) {
             @Override
             public String sayHello(String name) {
                 return name;

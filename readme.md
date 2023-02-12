@@ -201,4 +201,29 @@ RestController 는 Controller 를 메타 애노테이션으로 가지고 있음
 
 RestController 는 ResponseBody 를 가지고 있음
 
-그래서 RestController 가 붙은 컨트롤러는 리턴값을 바디에 넣어줌
+그래서 RestController 가 붙은 컨트롤러는 결과를 바디에 넣어서 리턴함
+
+## TomcatServletWebServerFactory 과 DispatcherServlet
+
+TomcatServletWebServerFactory 과 DispatcherServlet 를 스프링의 빈으로 등록하고 스프링 컨테이너가 관리할 수 있도록 해보자
+
+지금은 TomcatServletWebServerFactory 과 DispatcherServlet 이 new 로 생성되고 있음
+
+두 클래스를 생성하는 팩토리 함수를 만들고 @Bean 을 등록한다
+
+그리고 main() 메소드에서 this.getBean 을 호출하면 빈으로 가져올 수 있다.
+
+## Bean 의 라이프 사이클
+
+DispatcherServlet 의 Source code hierarchy Ctrl + H
+
+DispatcherServlet 은 ApplicationContextAware 인터페이스를 구현하고 있음
+
+ApplicationContextAware 의 setApplicationContext() 메소드가 있음
+
+ApplicationContextAware 인터페이스는 빈을 컨테이너가 등록하고 관리하는 중에 컨테이너가 관리하는 오브젝트를 빈에 주입해주는 라이프사이클 메소드임
+
+ApplicationContextAware 인터페이스를 구현한 클래스가 스프링 컨테이너에 빈으로 등록되면 스프링 컨테이너가 Setter 메소드를 실행해 주입해줌
+
+따라서 DispatcherServlet 은 ApplicationContextAware 인터페이스를 구현하고 있기 때문에 명시적으로 setApplicationContext() 메소드를 실행하지 않아도 applicationContext 를 가지고 있게 됨
+

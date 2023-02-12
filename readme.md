@@ -257,5 +257,26 @@ XML 구성정보로 해당 빈이 받아야할 빈을 명시해주거나, 팩토
 
 @RestController 가 예시
 
+## 빈 오브젝트의 역할과 구분
 
+애플리케이션 빈: 사용자 구성정보(ComponentScan)
+- HelloController
+- HelloDecorator
+- HelloService
+- ...
+
+애플리케이션 인프라스트럭처 빈: 자동 구성정보(AutoConfiguration)
+- TomcatServletWebServerFactory
+- DispatcherServlet
+- DataSource
+- JpaEntityManagerFactory
+- JdbcTransactionManager
+- ...
+
+컨테이너 인프라스트럭처 빈
+- BeanPostProcesser
+- Environment
+- BeanFactoryPostProcessor
+- DefaultAdvisorAutoProxyCreator
+- ...
 

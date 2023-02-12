@@ -2,7 +2,6 @@ package tobyspring.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import tobyspring.config.EnableMyAutoConfiguration;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -280,3 +280,10 @@ XML 구성정보로 해당 빈이 받아야할 빈을 명시해주거나, 팩토
 - DefaultAdvisorAutoProxyCreator
 - ...
 
+## proxyBeanMethod
+
+@Configuration 의 요소로 proxyBeanMethods = false 할 수 있음
+
+proxyBeanMethods = false 의 의미는 무엇인가?
+
+@Configuration 은 스프링컨테이너가 불러서 사용할 수도 있지만 애플리케이션 코드안에서 불러서 사용할 수도 있음

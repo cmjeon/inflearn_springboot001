@@ -297,3 +297,26 @@ proxyBeanMethods = false 를 하면 이 프록시메서드가 작동하지 않�
 주로 사용자가 만든 @Configuration 의 설정에서 다른 빈 오브젝트를 의존하지 않아서 굳이 프록시메서드를 동작시킬 필요가 없는 경우에 사용됨
 
 SchedulingConfiguration
+
+## 스타터와 Jetty 서버 구성 추가
+
+스프링부트가 제공하는 기본 설정정보 확인할 수 있다.
+
+spring-boot-autoconfigure 의 META-INF 에 가면 org.springframework.boot.autoconfigure.AutoConfiguration.imports 파일이 있다.
+
+우리가 만든 tobyspring.config.MyAutoConfiguration.imports 와 동일하다.
+
+스프링부트는 이 파일로 기본 설정정보를 제공한다.
+
+서버를 구동할 때마다 org.springframework.boot.autoconfigure.AutoConfiguration.imports 안에 있는 모든 Configuration 을 활용하여 빈을 생성하지 않는다.
+
+어떻게 가능할까?
+
+## gradle dependency 확인
+
+```bash
+$ ./gradlew dependencies --configuration compileClasspath
+```
+
+
+

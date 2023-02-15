@@ -318,5 +318,11 @@ spring-boot-autoconfigure 의 META-INF 에 가면 org.springframework.boot.autoc
 $ ./gradlew dependencies --configuration compileClasspath
 ```
 
+## @Conditional과 Condition
+
+@Conditional 로 Configuration 이나 Bean 의 적용여부를 결정할 수 있음
+
+Configuration 의 Condition 이 먼저 검토되고, 이 후에 Bean 의 Condition 이 나중에 검토됨
+
 
 

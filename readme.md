@@ -324,5 +324,50 @@ $ ./gradlew dependencies --configuration compileClasspath
 
 Configuration 의 Condition 이 먼저 검토되고, 이 후에 Bean 의 Condition 이 나중에 검토됨
 
+## 자동 구성 정보 대체하기
 
+사용자 구성정보인 HelloController, HelloDecorator, SimpleHelloService 가 있음
 
+자동 구성정보인 TomcatServletWebServerFactory, JettyServletWebServerFactory 가 있음
+
+## 스프링 부트의 @Conditional
+
+스프링 부트가 제공하는 @Conditional 의 종류
+
+스프링 프레임워크의 @Profile 도 @Conditional 임
+
+```java
+@Conditional(ProfileCondition.class)
+public @interface Profile {
+  // ...
+}
+```
+
+- @ConditionalOnClass
+- @ConditionalOnMissingClass
+
+@Configuration 클래스레벨에서 조건을 체크하고, 이후 메소드에서 체크하는 것이 좋음
+
+- @ConditionalOnBean
+- @ConditionalOnMissingBean
+
+빈의 존재 여부를 기준으로 포함여부를 결정함
+
+대표적인 사용방식은 @ConditionalOnClass 과 @ConditionalOnMissingBean 을 조합하는 방식임
+
+- @ConditionalOnProperty 
+ 
+스프링의 환경 프로퍼티 정보를 이용함
+
+- @ConditionalOnResource
+
+지정된 리소스(파일)의 존재를 확인하는 조건
+
+- @ConditionalOnWebApplication
+- @ConditionalOnNotWebApplication
+
+웹 애플리케이션 여부를 확인
+
+- @ConditionalOnExpression
+
+스프링 SpEL(스프링 표현식)의 처리 결과를 기준으로 판단함

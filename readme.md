@@ -371,3 +371,9 @@ public @interface Profile {
 - @ConditionalOnExpression
 
 스프링 SpEL(스프링 표현식)의 처리 결과를 기준으로 판단함
+
+## Environment 추상화와 프로퍼티
+
+![001](./assets/images/002.png)
+
+자동구성정보로 기본으로 생성된 빈들의 프로퍼티 설정을 변경할 수 있음

@@ -22,6 +22,19 @@ import java.sql.Driver;
 public class DataSourceConfig {
 
     @Bean
+    @ConditionalOnMissingBean
+    DataSource hikariDataSource(MyDataSourceProperties properties) {
+        HikariDataSource dataSource = new HikariDataSource();
+
+        dataSource.setDriverClassName(properties.getDriverClassName());
+        dataSource.setJdbcUrl(properties.getUrl());
+        dataSource.setUsername(properties.getUsername());
+        dataSource.setPassword(properties.getPassword());
+
+        return dataSource;
+    }
+
+    @Bean
     @ConditionalMyOnClass("com.zaxxer.hikari.HikariDataSource")
     @ConditionalOnMissingBean
     DataSource dataSource(MyDataSourceProperties properties) throws ClassNotFoundException {
@@ -36,16 +49,10 @@ public class DataSourceConfig {
     }
 
     @Bean
+    @ConditionalOnSingleCandidate(DataSource.class)
     @ConditionalOnMissingBean
-    DataSource hikariDataSource(MyDataSourceProperties properties) {
-        HikariDataSource dataSource = new HikariDataSource();
-
-        dataSource.setDriverClassName(properties.getDriverClassName());
-        dataSource.setJdbcUrl(properties.getUrl());
-        dataSource.setUsername(properties.getUsername());
-        dataSource.setPassword(properties.getPassword());
-
-        return dataSource;
+    JdbcTransactionManager jdbcTransactionManager(DataSource dataSource) {
+        return new JdbcTransactionManager(dataSource);
     }
 
     @Bean
@@ -53,13 +60,6 @@ public class DataSourceConfig {
     @ConditionalOnMissingBean
     JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
-    }
-
-    @Bean
-    @ConditionalOnSingleCandidate(DataSource.class)
-    @ConditionalOnMissingBean
-    JdbcTransactionManager jdbcTransactionManager(DataSource dataSource) {
-        return new JdbcTransactionManager(dataSource);
     }
 
 }

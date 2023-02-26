@@ -377,3 +377,7 @@ public @interface Profile {
 ![001](./assets/images/002.png)
 
 자동구성정보로 기본으로 생성된 빈들의 프로퍼티 설정을 변경할 수 있음
+
+## 스프링 부트 자세히 살펴보기
+
+![img.png](assets/images/003.png)
